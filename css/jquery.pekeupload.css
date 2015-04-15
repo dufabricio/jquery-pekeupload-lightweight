@@ -1,0 +1,191 @@
+#container {
+    width: 100%;
+    margin: auto;
+}
+#upload-panel .pending-upload{
+    color: #900;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#upload-panel .last-sent-date{
+    color: #090;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#upload-panel {
+    width: 491px;
+    height: 317px;
+    /*background-color: #4DF;*/
+    margin: 60px 0px 0px 14px;
+}
+
+
+
+#upload-panel .attach-messages.success {
+    color:#090;
+    font-weight: bold;
+    font-size: 88%;
+    display: block;
+    position: relative;
+    width: 420px;
+    padding: 11px 0px 0px 34px;
+    margin: 0px;
+}
+
+#upload-panel .attach-messages.error {
+    color: #900;
+    font-weight: bold;
+    font-size: 88%;
+    display: block;
+    position: relative;
+    width: 420px;
+    padding: 0px 0px 0px 34px;
+    margin: 0px;
+}
+
+
+#upload-panel .doc1-container {
+    width:345px;
+    height:170px;
+    padding-left: 68px;
+}
+
+#upload-panel .doc1-container {
+    background: transparent url(../img/docupload_identificacao_icon.png) 10px 10px no-repeat;
+}
+
+
+
+#upload-panel h3 {
+    margin: 0px;
+    color: #00599c;
+    font-weight: bold;
+    font-size: 140%;
+    padding: 10px;
+}
+
+#upload-panel span{
+    padding: 0px 10px;
+    display: block;
+}
+
+#upload-panel input {
+}
+
+#upload-panel .attach-file {
+    margin-top: 5px;
+    width: 340px;
+    height:40px;
+    background: transparent url(../img/docupload_attach_icon.png) 0px 0px no-repeat;
+}
+
+#upload-panel .attach-file .attach-types-desc{
+    line-height: 15px;
+    padding: 0px 0px 0px 35px;
+    color: #999;
+    font-size: 80%;
+}
+
+
+.btn-pekeupload {
+    display:inline-block;
+    width: 122px;
+    height: 17px;
+    padding-left:35px;
+    padding-top:10px;
+}
+
+.pekecontainer{
+    padding: 0px;
+    float: right;
+}
+
+
+
+.pekecontainer .filename{
+    padding: 5px 0px;
+    font-size: x-small;
+}
+
+.btn-pekeupload:hover {
+    /*
+     display:inline-block;
+     width: 40px;
+     height: 17px;
+     background-color: #2dabf9;
+     */
+}
+.btn-pekeupload:active {
+    /*
+    position:relative;
+    top:1px;
+    */
+}
+
+
+/*
+ * Base
+ */
+
+.progress-pekeupload{
+
+    width:100%;
+    height:16px;
+    margin:0 auto 20px auto;
+    padding:0px;
+    background:#cfcfcf;
+    border-width:1px;
+    border-style:solid;
+    border-color: #aaa #bbb #fff #bbb;
+    box-shadow:inset 0px 2px 3px #bbb;
+}
+
+.progress-pekeupload,
+.bar-pekeupload{
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    -o-border-radius:4px;
+    text-align: center;
+}
+
+.bar-pekeupload{
+    height:100%;
+    background:#999;
+
+    background-size:18px 18px;
+    background-color:#7ce;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: -ms-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+
+    box-shadow:inset 0px 2px 8px rgba(255, 255, 255, .5), inset -1px -1px 0px rgba(0, 0, 0, .2);
+}
+.alert-pekeupload {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.alert-pekeupload .close{
+    margin-top: 2px;
+}
