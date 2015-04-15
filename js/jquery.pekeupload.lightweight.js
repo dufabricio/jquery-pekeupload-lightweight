@@ -28,6 +28,7 @@
       url:          "",
       field:        "file",
       data:         null,
+      formSubmitMode:   false,
       multi:        true,
       showFilename:       true,
       showPercent:        true,
@@ -56,12 +57,22 @@
 
     //Main function
     var obj;
+    var uploadForm;
     var file = new Object();
 
     this.each(function() {
       obj = $(this);
 
       var html = '<a href="javascript:void(0)" class="btn-pekeupload">'+options.messages.btnUploadLabel+'</a><div class="pekecontainer"></div>';
+
+      if(options.formSubmitMode) {
+        uploadForm = obj.parents('form');
+        uploadForm.attr('action',options.url);
+        var redirectUriParam = $("<input name=\"redirectUri\" type=\"hidden\" value=\""+window.location.href+"\"/>");
+        uploadForm.prepend(redirectUriParam);
+      }
+
+
 
       obj.after(html);
       obj.hide();
@@ -99,43 +110,50 @@
       formData.append(options.field, obj[0].files[0]);
       formData.append('data', options.data);
 
-      $.ajax({
-        url: options.url,
-        type: 'POST',
-        data: formData,
-        success: function(data){
+      if(options.formSubmitMode) {
 
-          var percent = 100;
-          obj.next('a').next('div').find('.pekeup-progress-bar:first').width(percent+'%');
-          obj.next('a').next('div').find('.pekeup-progress-bar:first').text(percent+"%");
+        uploadForm.submit();
 
-          if (data==1){
+      }else{
 
-              if (options.multi==false){
-                obj.attr('disabled','disabled');
+        $.ajax({
+          url: options.url,
+          type: 'POST',
+          data: formData,
+          success: function (data) {
+
+            var percent = 100;
+            obj.next('a').next('div').find('.pekeup-progress-bar:first').width(percent + '%');
+            obj.next('a').next('div').find('.pekeup-progress-bar:first').text(percent + "%");
+
+            if (data == 1) {
+
+              if (options.multi == false) {
+                obj.attr('disabled', 'disabled');
               }
-              options.onUploadSuccess(obj, file,data);
+              options.onUploadSuccess(obj, file, data);
               obj.next('a').next('div').empty();
 
-          }else{
+            } else {
 
-            obj.next('a').next('div').find('.file:first').remove();
-            options.onUploadSuccess(obj, file, data);
-            error = false;
+              obj.next('a').next('div').find('.file:first').remove();
+              options.onUploadSuccess(obj, file, data);
+              error = false;
 
-          }
-        },
-        xhr: function() {  // custom xhr
-          myXhr = $.ajaxSettings.xhr();
-          if(myXhr.upload){ // check if upload property exists
-            myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // for handling the progress of the upload
-          }
-          return myXhr;
-        },
-        cache: false,
-        contentType: false,
-        processData: false
-      });
+            }
+          },
+          xhr: function () {  // custom xhr
+            myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // check if upload property exists
+              myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // for handling the progress of the upload
+            }
+            return myXhr;
+          },
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      }
       return error;
     }
     //Function that updates bars progress

@@ -18,6 +18,7 @@
                 },
                 data: "{\"registrationToken\": \"" + $('#registrationToken').val() + "\",\"description\": \"Documento com Foto\", \"numDoc\": 1 }",
                 maxSize: 2,
+                formSubmitMode: true, // form submit tradition mode for full browser support.
                 allowedExtensions: "jpeg|jpg|png|gif|pdf"
             });
 
@@ -28,16 +29,18 @@
 <div id="container">
     <div id="upload-panel">
 
-        <div class="doc1-container">
-            <span class="pending-upload">please, send a document.</span>
-            <h3>Document with Photo</h3>
-            <span>Document containing your image</span>
-            <div class="attach-file">
-                <input id="doc1" type="file" name="file">
-                <span class="attach-types-desc">(pdf, jpg, gif ou png) <br> máx size: 2mb</span>
-                <span class="attach-messages"></span>
+        <form id="doc1-form">
+            <div class="doc1-container">
+                <span class="pending-upload">please, send a document.</span>
+                <h3>Document with Photo</h3>
+                <span>Document containing your image</span>
+                <div class="attach-file">
+                    <input id="doc1" type="file" name="file">
+                    <span class="attach-types-desc">(pdf, jpg, gif ou png) <br> máx size: 2mb</span>
+                    <span class="attach-messages"></span>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
